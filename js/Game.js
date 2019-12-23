@@ -14,15 +14,13 @@
     */
      createPhrases(){
          const phrases = [
-            new Phrase('I solemnly swear that I am up to no good'),
-            new Phrase('prisoner of azkaban'),
-            new Phrase('Do not let the muggles get you down'),
-            new Phrase('the boy who lived'),
+            new Phrase('After all tomorrow is another day'),
+            new Phrase('Houston we have a problem'),
+            new Phrase('May the Force be with you'),
+            new Phrase('There is no place like home'),
             new Phrase('When in doubt go to the library'),
-            new Phrase('Minerwa McGonagall'),
-            new Phrase('Three Broomsticks'),
-            new Phrase('Dobby is free'),
-            new Phrase('Salazar Slytherin')
+            new Phrase('To infinity and beyond'),
+            new Phrase('I feel the need the need for speed')
         ];
         return phrases;
      }

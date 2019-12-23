@@ -19,10 +19,10 @@ class Phrase{
         splitPhrase.forEach(letter =>{
             const li = document.createElement('li');
             li.textContent = letter;
-            if(letter !== ""){
-                li.className = 'letter';
-            }else if(letter === ""){
+            if(! /^[a-z]$/.test(letter)){ //checks if there isn't a letter
                 li.className = 'space';
+            }else{
+                li.className = 'letter';
             }
             ul.appendChild(li);
         });

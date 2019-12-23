@@ -20,8 +20,9 @@
             new Phrase('the boy who lived'),
             new Phrase('When in doubt go to the library'),
             new Phrase('Minerwa McGonagall'),
-            new Phrase('Fear of a name increases fear of the thing itself'),
-            new Phrase('Dobby is free')
+            new Phrase('Three Broomsticks'),
+            new Phrase('Dobby is free'),
+            new Phrase('Salazar Slytherin')
         ];
         return phrases;
      }
@@ -31,8 +32,16 @@
     */
      getRandomPhrase(){
         const randomNumber = Math.floor(Math.random()*this.phrases.length);
-        console.log(randomNumber);
         const randomPhrase = this.phrases[randomNumber];
         return randomPhrase;
+     }
+    /**
+    * Begins game by selecting a random phrase and displaying it to user
+    */
+     startGame(){
+        const startScreen = document.querySelector('div #overlay');
+        startScreen.style.display = 'none'; //hides start screen
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
      }
  }

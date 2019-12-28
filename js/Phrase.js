@@ -22,7 +22,7 @@ class Phrase{
             if(! /^[a-z]$/.test(letter)){ //checks if there isn't a letter
                 li.className = 'space';
             }else{
-                li.className = 'letter';
+                li.className = `hide letter ${letter}`;
             }
             ul.appendChild(li);
         });
@@ -33,15 +33,26 @@ class Phrase{
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        const buttonsDiv = document.querySelector('#qwerty');
-        buttonsDiv.addEventListener('click',(e)=>{
-            const clickedButton = e.target;
-            console.log(clickedButton);
-            if(clickedButton.textContent === letter){
-                console.log(true);
-            }else{
-                console.log(false);
-            }    
+        
+        const phrase = this.phrase;
+        console.log(phrase);
+        if(phrase.includes(letter)){
+            return true;
+        }else{
+            return false;
+        }    
+    };
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+        const phrase = document.querySelectorAll('.letter');
+        phrase.forEach(char =>{
+            if( char.textContent === letter){
+                char.classList.add('show');
+                char.classList.remove('hide');
+            }
         });
     };
 }

@@ -11,5 +11,8 @@ resetButton.addEventListener('click',(e)=>{
     e.preventDefault();
     game = new Game();
     game.startGame();
+    game.activePhrase.checkLetter('a');
+    
 });
+
 

@@ -42,5 +42,27 @@
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
      }
-     
+     /**
+    * Checks for winning move
+    * @return {boolean} True if game has been won, false if game wasn't
+    won
+    */
+    checkForWin(){
+        const li = document.querySelectorAll('ul li');
+        let showed = [];
+        const phrase = this.activePhrase;
+        console.log(phrase);
+        li.forEach(letter=>{
+            if(letter.className === 'show'){
+                showed.push(letter);
+            }
+        });
+        console.log(showed);
+        if(showed.length === phrase.length){
+            return true;
+        }else{
+            return false;
+        };
+        
+    };
  }

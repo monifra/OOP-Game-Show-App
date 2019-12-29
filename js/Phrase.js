@@ -33,7 +33,6 @@ class Phrase{
     * @param (string) letter - Letter to check
     */
     checkLetter(letter) {
-        
         const phrase = this.phrase;
         console.log(phrase);
         if(phrase.includes(letter)){

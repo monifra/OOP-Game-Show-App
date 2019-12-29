@@ -48,21 +48,22 @@
     won
     */
     checkForWin(){
-        const li = document.querySelectorAll('ul li');
-        let showed = [];
-        const phrase = this.activePhrase;
-        console.log(phrase);
-        li.forEach(letter=>{
-            if(letter.className === 'show'){
-                showed.push(letter);
-            }
-        });
-        console.log(showed);
-        if(showed.length === phrase.length){
+        const allLi = document.querySelectorAll('.letter');
+        const allLiShow = document.querySelectorAll('.show');
+        console.log(allLi);
+        console.log(allLiShow);
+        if(allLi.length === allLiShow.length){
             return true;
-        }else{
+        } else{
             return false;
-        };
+        }
+    };
+    /**
+    * Increases the value of the missed property
+    * Removes a life from the scoreboard
+    * Checks if player has remaining lives and ends game if player is out
+    */
+    removeLife() {
         
     };
  }

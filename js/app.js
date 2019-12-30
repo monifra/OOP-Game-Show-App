@@ -6,26 +6,20 @@
 
 let game;
 const resetButton = document.querySelector('#overlay button');
+const keyboard = document.querySelector('#qwerty');
 
 resetButton.addEventListener('click',(e)=>{
     e.preventDefault();
     game = new Game();
     game.startGame();
-    
+});
+
+keyboard.addEventListener('click',(e)=>{
+    const clicked = e.target;
+    if(clicked.tagName === 'BUTTON'){
+        console.log('it\s working');
+        game.handleInteraction(e.target);
+    }
 });
 
 
-// 
-//     const buttonsDiv = document.querySelector('#qwerty');
-//     buttonsDiv.addEventListener('click',(e)=>{
-//         const clickedButton = e.target;
-//         const activePhrase = this.phrase;
-//         console.log(clickedButton);
-//         console.log(activePhrase);
-//         if(clickedButton.textContent){
-//             return true;
-//         }else{
-//             return false;
-//         }    
-// 
-//

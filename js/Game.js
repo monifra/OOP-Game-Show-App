@@ -64,6 +64,43 @@
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife() {
+        const heart = document.querySelectorAll('.tries img');
+        this.missed +=1;
         
+        if(this.missed === 1){
+            heart[0].setAttribute('src', 'images/lostHeart.png');
+        }else if(this.missed === 2){
+            heart[1].setAttribute('src', 'images/lostHeart.png');
+        }else if(this.missed === 3){
+            heart[2].setAttribute('src', 'images/lostHeart.png');
+        }else if(this.missed === 4){
+            heart[3].setAttribute('src', 'images/lostHeart.png');
+        }else if(this.missed === 5){
+            this.gameOver(false);
+        }
     };
+    /**
+    * Displays game over message
+    * @param {boolean} gameWon - Whether or not the user won the game
+    */
+    gameOver(gameWon) {
+        const startScreen = document.querySelector('div #overlay');
+        const startScreenHOne = document.querySelector('#overlay h1');
+        if (gameWon === true){
+            startScreen.setAttribute('class','win');
+            startScreenHOne.textContent = 'Great Job! You Win!';
+            startScreen.style.display = '';
+        }else if(gameWon === false){
+            startScreen.setAttribute('class','lose');
+            startScreenHOne.textContent = 'Sorry! Better Luck Next Time!';
+            startScreen.style.display = '';
+        }
+    };
+    /**
+    * Handles onscreen keyboard button clicks
+    * @param (HTMLButtonElement) button - The clicked button element
+    */
+    handleInteraction(button) {
+        console.log(button);
+        };
  }

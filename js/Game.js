@@ -50,8 +50,8 @@
     checkForWin(){
         const allLi = document.querySelectorAll('.letter');
         const allLiShow = document.querySelectorAll('.show');
-        console.log(allLi);
-        console.log(allLiShow);
+        // console.log(allLi);
+        // console.log(allLiShow);
         if(allLi.length === allLiShow.length){
             return true;
         } else{
@@ -101,6 +101,21 @@
     * @param (HTMLButtonElement) button - The clicked button element
     */
     handleInteraction(button) {
-        console.log(button);
-        };
+        // console.log(button);
+        button.disabled=true;
+        const ifLetter = this.activePhrase.checkLetter(button.textContent);
+        if(!ifLetter){
+            button.className = 'wrong';
+            this.removeLife();
+        }
+        if(ifLetter){
+            button.className ='chosen';
+            this.activePhrase.showMatchedLetter(button.textContent);
+            const win = this.checkForWin();
+            if(win){
+                this.gameOver(true);
+            }
+        }
+
+    };
  }

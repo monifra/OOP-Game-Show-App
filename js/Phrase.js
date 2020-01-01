@@ -26,7 +26,7 @@ class Phrase{
             }
             ul.appendChild(li);
         });
-        console.log(parentDiv);
+        // console.log(parentDiv);
     }
     /**
     * Checks if passed letter is in phrase
@@ -34,7 +34,7 @@ class Phrase{
     */
     checkLetter(letter) {
         const phrase = this.phrase;
-        console.log(phrase);
+        // console.log(phrase);
         if(phrase.includes(letter)){
             return true;
         }else{

@@ -39,12 +39,14 @@ keyboard.addEventListener('click',(e)=>{
     }
 });
 
-document.addEventListener('keyup',(e)=>{
+document.addEventListener('keydown',(e)=>{
     const clicked = e.key;
     console.log(clicked);
-    if(clicked === ){
-        console.log('it\s working');
-        game.handleInteraction(e.target);
-    }
+    
+    
+    // if(clicked){
+    //     console.log('it\s working');
+        // game.handleInteraction(clicked);
+    // }
 });
 

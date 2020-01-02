@@ -14,13 +14,14 @@
     */
      createPhrases(){
          const phrases = [
-            new Phrase('After all tomorrow is another day'),
-            new Phrase('Houston we have a problem'),
-            new Phrase('May the Force be with you'),
-            new Phrase('There is no place like home'),
-            new Phrase('When in doubt go to the library'),
+            new Phrase('Go ahead make my day'),
+            new Phrase('Why so serious'),
+            new Phrase('I am your father'),
+            new Phrase('Shaken not stirred'),
+            new Phrase('It is alive'),
             new Phrase('To infinity and beyond'),
-            new Phrase('I feel the need the need for speed')
+            new Phrase('Chewie, we are home'),
+            new Phrase('Here is Johnny')
         ];
         return phrases;
      }
@@ -34,7 +35,7 @@
         return randomPhrase;
      }
     /**
-    * Begins game by selecting a random phrase and displaying it to user
+    * Begins game by selecting a random phrase and display it to user
     */
      startGame(){
         const startScreen = document.querySelector('div #overlay');
@@ -52,7 +53,7 @@
         const allLiShow = document.querySelectorAll('.show');
         // console.log(allLi);
         // console.log(allLiShow);
-        if(allLi.length === allLiShow.length){
+        if(allLi.length === allLiShow.length){ //if the length of letter in phrase is same as the lenght of showed letter
             return true;
         } else{
             return false;
@@ -76,7 +77,7 @@
         }else if(this.missed === 4){
             heart[3].setAttribute('src', 'images/lostHeart.png');
         }else if(this.missed === 5){
-            this.gameOver(false);
+            this.gameOver(false); //game is lost
         }
     };
     /**
@@ -86,14 +87,14 @@
     gameOver(gameWon) {
         const startScreen = document.querySelector('div #overlay');
         const startScreenHOne = document.querySelector('#overlay h1');
-        if (gameWon === true){
-            startScreen.setAttribute('class','win');
-            startScreenHOne.textContent = 'Great Job! You Win!';
-            startScreen.style.display = '';
-        }else if(gameWon === false){
-            startScreen.setAttribute('class','lose');
-            startScreenHOne.textContent = 'Sorry! Better Luck Next Time!';
-            startScreen.style.display = '';
+        if (gameWon === true){ //if game is won
+            startScreen.setAttribute('class','win');//add class win
+            startScreenHOne.textContent = 'WOW! You Win!';//create win information
+            startScreen.style.display = '';//display winning screen 
+        }else if(gameWon === false){//if game is lose
+            startScreen.setAttribute('class','lose');//add class lose
+            startScreenHOne.textContent = 'SORRY! Better Luck Next Time!';//create lose information
+            startScreen.style.display = '';//display losing screen
         }
     };
     /**
@@ -102,18 +103,18 @@
     */
     handleInteraction(button) {
         // console.log(button);
-        button.disabled=true;
-        const ifLetter = this.activePhrase.checkLetter(button.textContent);
-        if(!ifLetter){
+        button.disabled=true; //when the keyboard button is clicked disable it
+        const ifLetter = this.activePhrase.checkLetter(button.textContent);//run checkLetter() on the button 
+        if(!ifLetter){ //if letter wasn't correctly guessed
             button.className = 'wrong';
-            this.removeLife();
+            this.removeLife(); //remove Life
         }
-        if(ifLetter){
-            button.className ='chosen';
-            this.activePhrase.showMatchedLetter(button.textContent);
-            const win = this.checkForWin();
-            if(win){
-                this.gameOver(true);
+        if(ifLetter){ //if letter was correctly guessed
+            button.className ='chosen'; 
+            this.activePhrase.showMatchedLetter(button.textContent); //show corectly guessed letter in the phrase
+            const win = this.checkForWin(); //check if the game was won
+            if(win){ //if it was won
+                this.gameOver(true); //rwin the game
             }
         }
 

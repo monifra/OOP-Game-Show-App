@@ -101,6 +101,7 @@ button {
   color: transparent;
   background: var(--color-neutral-light);
   border-radius: 5px;
+  transition:background-color 1s ease;
 }
 
 .space {
@@ -138,7 +139,7 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
+  background: #FAD02C;
   color: #FFFFFF;
 }
 
@@ -180,7 +181,7 @@ button {
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: #FAD02C;
 }
 
 .start a {
@@ -196,7 +197,7 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #F85A3E;
 }
 
 .lose a {

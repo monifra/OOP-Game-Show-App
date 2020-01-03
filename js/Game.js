@@ -65,18 +65,12 @@
     * Checks if player has remaining lives and ends game if player is out
     */
     removeLife() {
-        const heart = document.querySelectorAll('.tries img');
+        const hearts = document.querySelectorAll('[src = "images/liveHeart.png"]'); //chosing only live heart
         this.missed +=1;
-        
-        if(this.missed === 1){
-            heart[0].setAttribute('src', 'images/lostHeart.png');
-        }else if(this.missed === 2){
-            heart[1].setAttribute('src', 'images/lostHeart.png');
-        }else if(this.missed === 3){
-            heart[2].setAttribute('src', 'images/lostHeart.png');
-        }else if(this.missed === 4){
-            heart[3].setAttribute('src', 'images/lostHeart.png');
-        }else if(this.missed === 5){
+        for(let i =0; i<hearts.length;i++){
+            hearts[0].setAttribute('src', 'images/lostHeart.png');  //change first live live to lost heart
+        }
+        if(this.missed === 5){
             this.gameOver(false); //game is lost
         }
     };
@@ -103,20 +97,21 @@
     */
     handleInteraction(button) {
         // console.log(button);
-        button.disabled=true; //when the keyboard button is clicked disable it
-        const ifLetter = this.activePhrase.checkLetter(button.textContent);//run checkLetter() on the button 
-        if(!ifLetter){ //if letter wasn't correctly guessed
-            button.className = 'wrong';
-            this.removeLife(); //remove Life
-        }
-        if(ifLetter){ //if letter was correctly guessed
-            button.className ='chosen'; 
-            this.activePhrase.showMatchedLetter(button.textContent); //show corectly guessed letter in the phrase
-            const win = this.checkForWin(); //check if the game was won
-            if(win){ //if it was won
-                this.gameOver(true); //rwin the game
+        if(button.disabled === false){
+            button.disabled=true; //when the keyboard button is clicked disable it
+            const ifLetter = this.activePhrase.checkLetter(button.textContent);//run checkLetter() on the button
+            if(!ifLetter){ //if letter wasn't correctly guessed
+                button.className = 'wrong';
+                this.removeLife(); //remove Life
+            }
+            if(ifLetter){ //if letter was correctly guessed
+                button.className ='chosen'; 
+                this.activePhrase.showMatchedLetter(button.textContent); //show corectly guessed letter in the phrase
+                const win = this.checkForWin(); //check if the game was won
+                if(win){ //if it was won
+                    this.gameOver(true); //win the game
+                }
             }
         }
-
     };
  }

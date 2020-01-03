@@ -56,7 +56,7 @@ document.addEventListener('keydown',(e)=>{
     const clicked = e.key;
     keyboardButtons.forEach(button=>{ //for every DOM keyboard button
         if(clicked === button.textContent){ //find which DOM button matches real keyboard button
-            game.handleInteraction(button); //hanle game interactions on DOM button
+            game.handleInteraction(button); //handle game interactions on DOM button
         }
     });
 });
